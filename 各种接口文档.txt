@@ -5,7 +5,7 @@ https://mainsite-restapi.ele.me/bgs/poi/reverse_geo_coding?latitude=34.749779&lo
 https://mainsite-restapi.ele.me/bgs/weather/current?latitude=34.727104&longitude=113.75939
 
 新用户推广：
-https://mainsite-restapi.ele.me/shopping/v2/entries?latitude=34.749779&longitude=113.651146&templates%5B%5D=big_sale_promotion_template
+https://mainsite-restapi.ele.me/shopping/v2/entries?latitude=34.749779&longitude=113.651146&templates[]=big_sale_promotion_template
 
 轮播图：
 https://mainsite-restapi.ele.me/shopping/openapi/entries?latitude=34.749779&longitude=113.651146&templates[]=main_template&templates[]=favourable_template&templates[]=svip_template

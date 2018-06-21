@@ -100,7 +100,7 @@ Page({
         templates: ["big_sale_promotion_template"]
       },
       success: function (res) {
-        // console.log(res.data)
+        console.log(res.data)
         res.data.forEach(function (item) {
           item.entries.forEach(function (entry) {
             entry.image_hash = util.formatImage(entry.image_hash);
@@ -124,7 +124,7 @@ Page({
         templates: ["main_template", "favourable_template", "svip_template"]
       },
       success: function (res) {
-        // console.log(res.data)
+        console.log(res.data)
         res.data.forEach(function (item) {
           item.entries.forEach(function (entry) {
             entry.image_hash = util.formatImage(entry.image_hash);

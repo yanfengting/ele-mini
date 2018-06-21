@@ -33,6 +33,9 @@ function formatImage(imghash) {
 
 // 用来处理天气温度，在温度数值后添加°符号
 function formatTemperature(temperature) {
+  if (!temperature) {
+    return "";
+  }
   return temperature + "°";
 }
 
