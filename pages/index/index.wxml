@@ -1,13 +1,78 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="page">
+
+  <view class="address-weather">
+    <view class="flex-item-left">
+      <text class="fa fa-map-marker"></text>
+      <text>{{position.address_short}}</text>
+    </view>
+    <view class="flex-item-right">
+      <view>
+        <text>{{weather.temperature}}\n{{weather.description}}</text>
+      </view>
+      <view>
+        <image src="{{weather.image_hash}}"></image>
+      </view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">搜索饿了么商家、商家名称</view>
+      </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
   </view>
+  <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+    <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">
+        <view>实时搜索文本</view>
+      </view>
+    </navigator>
+    <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">
+        <view>实时搜索文本</view>
+      </view>
+    </navigator>
+    <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">
+        <view>实时搜索文本</view>
+      </view>
+    </navigator>
+    <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">
+        <view>实时搜索文本</view>
+      </view>
+    </navigator>
+  </view>
+
+  <view class="banner">
+    <image class="image" src="{{promotion.image_hash}}" />
+  </view>
+
+  <view class="swiper">
+    <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500">
+      <swiper-item wx:for="{{entries}}" wx:key="index">
+        <view class="weui-grids">
+          <block wx:for="{{item}}" wx:key="*this" wx:for-index="i" wx:for-item="entry">
+            <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+              <image class="weui-grid__icon" src="{{entry.image_hash}}" />
+              <view class="weui-grid__label">{{entry.name}}</view>
+            </navigator>
+          </block>
+        </view>
+
+      </swiper-item>
+    </swiper>
+  </view>
+
 </view>

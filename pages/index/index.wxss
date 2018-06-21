@@ -1,21 +1,81 @@
 /**index.wxss**/
-.userinfo {
+
+.address-weather {
   display: flex;
-  flex-direction: column;
+  background-image: linear-gradient(90deg, #0af, #0085ff);
+  color: white;
+  padding: 0 10px;
+}
+
+.flex-item-left {
+  width: 80%;
+}
+
+.flex-item-left text:nth-child(1) {
+  font-size: 60rpx;
+}
+
+.flex-item-left text:nth-child(2) {
+  margin-left: 10rpx;
   align-items: center;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.flex-item-right {
+  width: 20%;
+  display: flex;
+  height: 70rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.flex-item-right image {
+  width: 80rpx;
+  height: 80rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.searchbar-result {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.searchbar-result:before {
+  display: none;
+}
+
+.weui-cell {
+  padding: 12px 15px 12px 35px;
+}
+
+.weui-search-bar {
+  background-image: linear-gradient(90deg, #0af, #0085ff);
+  border: none;
+}
+
+.weui-search-bar__cancel-btn {
+  color: white;
+}
+
+.image {
+  height: 28vw;
+  width: 100%;
+}
+
+.swiper {
+  margin-top: -6px;
+}
+
+.swiper-item {
+  display: block;
+  height: 150px;
+  width: 100%;
+}
+
+.weui-grids {
+  border-top: none !important;
+  border-left: none !important;
+}
+
+.weui-grid {
+  border-right: none !important;
+  border-bottom: none !important;
+  width: 20%;
+  padding: 5px 0;
 }

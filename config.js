@@ -21,6 +21,8 @@ var config = {
 
   // 以下是要访问的各种接口：
   geo: `${host}/bgs/poi/reverse_geo_coding`,
+  weather: `${host}/bgs/weather/current`,
+  promotion: `${host}/shopping/v2/entries`,
   entries: `${host}/shopping/openapi/entries`,
   restaurants: `${host}/shopping/v3/restaurants`
   

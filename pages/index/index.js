@@ -1,54 +1,147 @@
 //index.js
-//获取应用实例
 const app = getApp()
+var config = require('../../config.js')
+var util = require('../../utils/util.js')
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    inputShowed: false,
+    inputVal: "",
+    // 用户位置信息
+    position: {},
+    // 天气信息
+    weather: {},
+    // 新用户专享，推广
+    promotion: {},
+    // 轮播图
+    entries: [],
+    // 品质套餐
+    svip: {},
+    // 限量抢购
+    favourable: {}
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+    // 获取用户位置
+    this.getPosition();
+    // 获取天气信息
+    this.getWeather();
+    // 获取推荐信息
+    this.getPromotion()
+    // 获取轮播图，品质套餐，限量抢购
+    this.getEntries()
+  },
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+  // 获取用户位置
+  getPosition: function () {
+    var that = this
+    wx.request({
+      url: config.geo,
+      data: {
+        latitude: config.latitude,
+        longitude: config.longitude
+      },
+      success: function (res) {
+        // console.log(res)
+        res.data.address_short = `${res.data.address.substring(0, 15)}...`
+        that.setData({
+          position: res.data
+        });
+        // console.log(that.data.position)
+      }
+    })
+  },
+  // 获取天气信息
+  getWeather: function () {
+    var self = this
+    wx.request({
+      url: config.weather,
+      data: {
+        latitude: config.latitude,
+        longitude: config.longitude
+      },
+      success: function (res) {
+        // console.log(res.data)
+        res.data.image_hash = util.formatImage(res.data.image_hash)
+        res.data.temperature = util.formatTemperature(res.data.temperature)
+        self.setData({
+          weather: res.data
+        });
+      }
+    })
+  },
+  // 获取推广信息
+  getPromotion: function () {
+    var that = this;
+    wx.request({
+      url: config.promotion,
+      data: {
+        latitude: config.latitude,
+        longitude: config.longitude,
+        templates: ["big_sale_promotion_template"]
+      },
+      success: function (res) {
+        // console.log(res.data)
+        res.data.forEach(function (item) {
+          item.entries.forEach(function (entry) {
+            entry.image_hash = util.formatImage(entry.image_hash);
+          })
+        })
+        that.setData({
+          promotion: res.data[0].entries[0]
+        })
+        // console.log(that.data.promotion)
+      }
+    })
+  },
+  // 获取轮播图
+  getEntries: function () {
+    var that = this;
+    wx.request({
+      url: config.entries,
+      data: {
+        latitude: config.latitude,
+        longitude: config.longitude,
+        templates: ["main_template", "favourable_template", "svip_template"]
+      },
+      success: function (res) {
+        // console.log(res.data)
+        res.data.forEach(function (item) {
+          item.entries.forEach(function (entry) {
+            entry.image_hash = util.formatImage(entry.image_hash);
+          })
+        })
+        var swiper = res.data[0];
+        var group1 = swiper.entries.filter(function (v, i) {
+          return i > 0 && i <= 10;
+        })
+        var group2 = swiper.entries.filter(function (v, i) {
+          return i >= 10;
+        })
+        that.setData({
+          entries: [group1, group2],
+          favourable: res.data[1].entries[0]
         })
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
     })
   }
 })

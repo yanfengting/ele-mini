@@ -1,14 +1,14 @@
 用户位置：
 https://mainsite-restapi.ele.me/bgs/poi/reverse_geo_coding?latitude=34.749779&longitude=113.651146
 
-轮播图：
-https://mainsite-restapi.ele.me/shopping/openapi/entries?latitude=34.749779&longitude=113.651146&templates[]=main_template&templates[]=favourable_template&templates[]=svip_template
+天气信息：
+https://mainsite-restapi.ele.me/bgs/weather/current?latitude=34.727104&longitude=113.75939
 
-新用户轮播图：
+新用户推广：
 https://mainsite-restapi.ele.me/shopping/v2/entries?latitude=34.749779&longitude=113.651146&templates%5B%5D=big_sale_promotion_template
 
-暂停轮播图：
-https://mainsite-restapi.ele.me/shopping/v2/entries?latitude=34.749779&longitude=113.651146&templates%5B%5D=suspension_template
+轮播图：
+https://mainsite-restapi.ele.me/shopping/openapi/entries?latitude=34.749779&longitude=113.651146&templates[]=main_template&templates[]=favourable_template&templates[]=svip_template
 
 店铺信息：
 https://mainsite-restapi.ele.me/shopping/v3/restaurants?latitude=34.749779&longitude=113.651146&offset=0&limit=8&extras[]=activities&extras[]=tags&extra_filters=home&rank_id=&terminal=h5
