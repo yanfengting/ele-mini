@@ -56,14 +56,18 @@
   </view>
 
   <view class="banner">
-    <image class="image" src="{{promotion.image_hash}}" />
+    <swiper autoplay="true" interval="2000" duration="500">
+      <swiper-item wx:for="{{promotion}}" wx:key="index">
+        <image class="image" src="{{item.image_hash}}" />
+      </swiper-item>
+    </swiper>
   </view>
 
   <view class="swiper">
     <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500">
       <swiper-item wx:for="{{entries}}" wx:key="index">
         <view class="weui-grids">
-          <block wx:for="{{item}}" wx:key="*this" wx:for-index="i" wx:for-item="entry">
+          <block wx:for="{{item}}" wx:for-index="i" wx:for-item="entry" wx:key="i">
             <navigator url="" class="weui-grid" hover-class="weui-grid_active">
               <image class="weui-grid__icon" src="{{entry.image_hash}}" />
               <view class="weui-grid__label">{{entry.name}}</view>
@@ -73,6 +77,75 @@
 
       </swiper-item>
     </swiper>
+  </view>
+
+  <view class="recommand">
+    <view class="left">
+      <view class="title">{{recommand[0].title}}</view>
+      <view class="tip">{{recommand[0].tip}}</view>
+      <view class="go">
+        <navigator url="">
+          <text decode="true">立即抢购&nbsp;&nbsp;></text>
+        </navigator>
+      </view>
+      <image src="{{recommand[0].img}}" />
+    </view>
+    <view class="right">
+      <view class="title">{{recommand[1].title}}</view>
+      <view class="tip">{{recommand[1].tip}}</view>
+      <view class="go">
+        <navigator url="">
+          <text>{{recommand[1].popularity}}</text>
+          <text decode="true">人正在抢&nbsp;&nbsp;></text>
+        </navigator>
+      </view>
+      <image src="{{recommand[1].img}}" />
+    </view>
+  </view>
+
+  <view class="rbox">
+    <view class="title">
+      <text>推荐商家</text>
+    </view>
+    <navigator url="">
+      <view class="restaurant-item" wx:for="{{restaurants}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+        <view wx:if="item.restaurant.is_new" class="new-mark">
+          <text>新店</text>
+        </view>
+        <image class="res-ico" src="{{item.restaurant.image_path}}"></image>
+
+        <view class="right-box">
+          <view class="c-top">
+            <text class="{{item.restaurant.is_premium?'pre-name':''}}">{{item.restaurant.name}}</text>
+            <view class="flagbox">
+              <view class="flag" wx:for="{{item.restaurant.supports}}" wx:for-index="id" wx:for-item="icon" wx:key="id">
+                {{icon.icon_name}}
+              </view>
+            </view>
+          </view>
+          <view class="c-mid">
+            <view class="mid-left">
+              <text>{{item.restaurant.rating}}</text>
+              <view>月售{{item.restaurant.recent_order_num}}单</view>
+            </view>
+            <view class="mid-right">
+              <view class="zsd" wx:if="{{item.restaurant.delivery_mode}}">准时达</view>
+              <view class="fnzs" wx:if="{{item.restaurant.delivery_mode}}">蜂鸟转送</view>
+            </view>
+          </view>
+          <view class="c-bot">
+            <view class="bot-left">
+              <view>￥{{item.restaurant.float_minimum_order_amount}}元起送</view>
+              <text class="pre-x">{{item.restaurant.piecewise_agent_fee.tips}}</text>
+            </view>
+            <view class="bot-right">
+              <view>{{item.restaurant.distance}}</view>|
+              <text class="pre-x">{{item.restaurant.order_lead_time}}分钟</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
   </view>
 
 </view>

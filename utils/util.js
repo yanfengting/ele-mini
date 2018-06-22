@@ -39,8 +39,14 @@ function formatTemperature(temperature) {
   return temperature + "°";
 }
 
+// 格式化距离
+function formatDistance(distance) {
+  return (distance / 1000).toFixed(2) + "km";
+}
+
 module.exports = {
   formatTime: formatTime,
   formatImage: formatImage,
-  formatTemperature: formatTemperature
+  formatTemperature: formatTemperature,
+  formatDistance: formatDistance
 }

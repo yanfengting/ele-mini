@@ -1,5 +1,7 @@
 /**index.wxss**/
 
+/* 地址和天气  */
+
 .address-weather {
   display: flex;
   background-image: linear-gradient(90deg, #0af, #0085ff);
@@ -31,6 +33,8 @@
   height: 80rpx;
 }
 
+/* 搜索  */
+
 .searchbar-result {
   margin-top: 0;
   font-size: 14px;
@@ -53,19 +57,26 @@
   color: white;
 }
 
+/* 用户推广  */
+
+.banner {
+  margin-top: -1px;
+  height: 28vw;
+}
+
 .image {
   height: 28vw;
   width: 100%;
 }
 
+/* 轮播图  */
+
 .swiper {
   margin-top: -6px;
 }
 
-.swiper-item {
-  display: block;
-  height: 150px;
-  width: 100%;
+.weui-grid__label {
+  color: #777;
 }
 
 .weui-grids {
@@ -78,4 +89,260 @@
   border-bottom: none !important;
   width: 20%;
   padding: 5px 0;
+}
+
+/* 推荐  */
+
+.rbox .title{
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.rbox .title::before{
+  content: "―";
+  margin-right:10px;
+  color: #777;
+}
+
+.rbox .title::after{
+  content: "―";
+  margin-left:10px;
+  color: #777;
+}
+
+.recommand {
+  display: flex;
+  margin: 0 10px;
+  height: 40vw;
+}
+
+.recommand .left, .recommand .right {
+  box-sizing: border-box;
+  width: calc(50% - 2.5px);
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.recommand .left, .recommand .right {
+  position: relative;
+}
+
+.recommand .left {
+  margin-right: 2.5px;
+}
+
+.recommand .right {
+  margin-left: 2.5px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.right .title, .right .go text:nth-of-type(1) {
+  color: #e81919;
+}
+
+.tip {
+  font-size: 16px;
+  color: #777;
+}
+
+.go {
+  color: #af8260;
+}
+
+.right .go {
+  color: black;
+}
+
+.recommand image {
+  position: absolute;
+  right: 0;
+  bottom: -2vw;
+  width: 32vw;
+  height: 21.333333vw;
+}
+
+/* 商家列表  */
+
+.rbox {
+  padding: 0 10px;
+}
+
+.restaurant-item {
+  position: relative;
+  background-color: white;
+  display: flex;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.new-mark {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  height: 70rpx;
+  width: 70rpx;
+  background: linear-gradient(135deg, #26ce61, #26ce61 50%, transparent 0);
+}
+
+.new-mark text {
+  color: white;
+  font-weight: bold;
+  display: block;
+  transform: rotate(-45deg);
+  font-size: 16rpx;
+}
+
+.res-ico {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.right-box {
+  width: calc(100% - 150rpx - 8rpx);
+  margin-left: 8rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.c-top {
+  flex-basis: 35%;
+  display: flex;
+  align-items: center;
+}
+
+.c-top text {
+  flex-basis: 70%;
+  margin: 0;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 20px;
+  line-height: 20px;
+}
+
+.pre-name:before {
+  content: "品牌";
+  font-weight: bold;
+  font-size: 18rpx;
+  background-color: #ffd930;
+  padding: 4px;
+  border-radius: 2rpx;
+  margin-right: 4px;
+  vertical-align: top;
+}
+
+.c-top .flagbox, .c-top .flag {
+  display: flex;
+   align-items: center;
+  justify-content: center; 
+}
+
+.c-top .flagbox {
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.c-top .flag {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  line-height: 1rem;
+  margin-left: 4rpx;
+  color: grey;
+  border: solid 1rpx lightgrey;
+  font-size: 20rpx;
+  box-sizing: border-box;
+}
+
+.c-mid {
+  flex-basis: 35%;
+  display: flex;
+  font-size: 26rpx;
+}
+
+.c-mid .mid-left, .c-mid mid-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mid-left text {
+  color: #ff6000;
+  margin: 0 4rpx;
+}
+
+.mid-left view {
+  color: grey;
+}
+
+.mid-right {
+  display: flex;
+  font-size: 20rpx;
+  position: absolute;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.zsd, .fnzs{
+  padding: 0 5px;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 2px;
+}
+
+.zsd {
+  color: #2395ff;
+  border: solid 1px #2395ff;
+}
+
+.fnzs {
+  margin-left: 4px;
+  color: white;
+  background-color: #2395ff;
+}
+
+.c-bot {
+  flex-basis: 35%;
+  display: flex;
+  font-size: 26rpx;
+}
+
+.bot-left {
+  display: flex;
+  color: grey;
+}
+
+.bot-left text {
+  margin-left: 4px;
+}
+
+.bot-right {
+  display: flex;
+  position: absolute;
+  right: 0;
+  color: #777;
+}
+
+.bot-right view {
+  color: grey;
+  margin-right: 5px;
+}
+
+.bot-right text {
+  color: #2395ff;
+  margin-left: 5px;
 }
