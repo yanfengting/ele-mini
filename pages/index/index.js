@@ -48,7 +48,7 @@ Page({
     // 获取轮播图，品质套餐，限量抢购
     this.getEntries()
     // 获取商家列表，第一次进入取8条
-    this.getRestaurants(0)
+    this.getRestaurants()
   },
   // 上拉触底，会根据app.json中"onReachBottomDistance": 60来判断是否触底。
   onReachBottom: function() {

@@ -56,7 +56,7 @@
   </view>
 
   <view class="banner">
-    <swiper autoplay="true" interval="2000" duration="500">
+    <swiper autoplay="true" circular="true" interval="2000" duration="500">
       <swiper-item wx:for="{{promotion}}" wx:key="index">
         <image class="image" src="{{item.image_hash}}" />
       </swiper-item>
@@ -64,7 +64,7 @@
   </view>
 
   <view class="swiper">
-    <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500">
+    <swiper indicator-dots="true" autoplay="true" circular="true"  interval="2000" duration="500">
       <swiper-item wx:for="{{entries}}" wx:key="index">
         <view class="weui-grids">
           <block wx:for="{{item}}" wx:for-index="i" wx:for-item="entry" wx:key="i">
@@ -107,8 +107,8 @@
     <view class="title">
       <text>推荐商家</text>
     </view>
-    <navigator url="">
-      <view class="restaurant-item" wx:for="{{restaurants}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <navigator url="" wx:for="{{restaurants}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <view class="restaurant-item">
         <view wx:if="item.restaurant.is_new" class="new-mark">
           <text>新店</text>
         </view>

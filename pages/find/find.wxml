@@ -1,2 +1,28 @@
 <!--pages/find/find.wxml-->
-<text>正在开发中...</text>
+<view class="page">
+
+  <view class="advert">
+    <view class="weui-grids">
+      <block wx:for="{{grids}}" wx:key="*this">
+        <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+          <view class="weui-grid__label" style="color:{{item.titleColor}}">{{item.title}}</view>
+          <view class="weui-grid__label">{{item.tip}}</view>
+          <image class="weui-grid__icon" src="{{item.img}}" />
+        </navigator>
+      </block>
+    </view>
+  </view>
+
+  <view class="gift">
+    <view class="weui-grids">
+      <block wx:for="{{grids}}" wx:key="*this">
+        <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+          <view class="weui-grid__label" style="color:{{item.titleColor}}">{{item.title}}</view>
+          <view class="weui-grid__label">{{item.tip}}</view>
+          <image class="weui-grid__icon" src="{{item.img}}" />
+        </navigator>
+      </block>
+    </view>
+  </view>
+
+</view>

@@ -93,7 +93,7 @@
 
 /* 推荐  */
 
-.rbox .title{
+.rbox .title {
   text-align: center;
   display: block;
   width: 100%;
@@ -102,15 +102,15 @@
   font-size: 16px;
 }
 
-.rbox .title::before{
+.rbox .title::before {
   content: "―";
-  margin-right:10px;
+  margin-right: 10px;
   color: #777;
 }
 
-.rbox .title::after{
+.rbox .title::after {
   content: "―";
-  margin-left:10px;
+  margin-left: 10px;
   color: #777;
 }
 
@@ -242,8 +242,8 @@
 
 .c-top .flagbox, .c-top .flag {
   display: flex;
-   align-items: center;
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
 }
 
 .c-top .flagbox {
@@ -295,7 +295,7 @@
   justify-content: center;
 }
 
-.zsd, .fnzs{
+.zsd, .fnzs {
   padding: 0 5px;
   box-sizing: border-box;
   display: inline-block;
