@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.1.0",
-	"appid": "wx61b0d49359a4945c",
-	"projectname": "mini-ele",
+	"appid": "wx7acb670e00b40e5b",
+	"projectname": "ele-2",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
